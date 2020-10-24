@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-    
+        session.clear
+        redirect_to '/'
     end
 
 
