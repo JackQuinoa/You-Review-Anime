@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :reviews
-    has_many :anime, through: :reviews
+    has_many :anime
+    has_many :reviews, through: :anime
 
     validates :username, uniqueness: true, presence: true
     
