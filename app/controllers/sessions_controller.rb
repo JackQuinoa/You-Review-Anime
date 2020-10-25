@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+    
     def welcome
         
     end
@@ -12,12 +12,12 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id 
-            redirect_to user_path(@user)
+            redirect_to anime_path
         else
             redirect_to 'new'
         end
     end
-
+###logout
     def destroy
         session.clear
         redirect_to '/'
