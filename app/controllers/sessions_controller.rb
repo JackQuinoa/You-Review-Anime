@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 ###render login
     def new
         @user = User.new
+        render :login 
     end
 ###login to show page 
     def create
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect_to anime_path
         else
-            redirect_to 'new'
+            redirect_to '/login'
         end
     end
 ###logout
