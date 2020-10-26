@@ -12,6 +12,7 @@
   <body>
     <div> 
       <% if logged_in?%>
+      <%= link_to 'All Anime', animes_path %> |
       <%= link_to 'Log Out', logout_path, method: "delete" %>
       <% else %>
       <%= link_to "Sign up", signup_path %>
