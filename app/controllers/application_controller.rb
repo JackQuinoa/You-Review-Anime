@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+###gives access to methods in views
     helper_method :current_user, :logged_in?
 
     private
