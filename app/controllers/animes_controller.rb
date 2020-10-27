@@ -19,8 +19,8 @@ class AnimesController < ApplicationController
     end
 
     def show 
-        @post = Post.find_by_id(params[:id])
-        redirect_to posts_path if !@post
+        @anime = Anime.find_by_id(params[:id])
+        redirect_to animes_path if !@anime
     end
 
     private 
