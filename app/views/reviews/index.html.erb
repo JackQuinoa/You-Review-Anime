@@ -1,8 +1,11 @@
 <% if @anime %>
-Reviews for <%= @anime.title%>
+Reviews for <%= @anime.title%> 
+<%= link_to 'click here to review this anime!', new_anime_review_path %>
 <% else %>
 All Reviews
 <% end %>
+
+
 
 <ul>
 <% @reviews.each do |r| %>
