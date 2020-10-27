@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     def index 
         if params[:anime_id] && @anime = Anime.find_by_id(params[:anime_id])
             @reviews = @anime.reviews 
-        else 
+        else
             @reviews = Review.all 
         end
 
