@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/animes/most_reviewed' => 'animes#most_reviewed'
+
+  get "/auth/:provider/callback" => 'sessions#google'
   
   resources :reviews
   resources :animes do
