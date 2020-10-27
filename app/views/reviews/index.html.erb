@@ -1,0 +1,8 @@
+Here's <%= @anime.title %>'s reviews!
+
+<% @reviews.each do |r| %>
+    <%= r.rating %>,
+    <%= r.content %>, 
+    by <%= r.user_id.user.username %>
+    <%end%>
+
