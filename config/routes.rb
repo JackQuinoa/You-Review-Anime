@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   
   delete '/logout' => 'sessions#destroy'
+
+  get '/animes/most_reviewed' => 'animes#most_reviewed'
   
   resources :reviews
   resources :animes do
-    resources :reviews, only: [:new, :create, :index ]
+    resources :reviews, only: [:new, :create, :index, ]
   end
   resources :users do 
   end

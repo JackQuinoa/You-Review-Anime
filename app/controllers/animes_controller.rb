@@ -23,6 +23,12 @@ class AnimesController < ApplicationController
         redirect_to animes_path if !@anime
     end
 
+    def most_reviewed
+        @animes = Anime.all
+        @animes.sort_by{ |a| a.reviews.count }
+    end
+
+
     private 
 
     def anime_params
