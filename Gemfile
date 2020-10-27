@@ -26,7 +26,7 @@ gem 'pry','~> 0.13.1'
 
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
-gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'omniauth-facebook', '~> 7.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

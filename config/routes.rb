@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/animes/most_reviewed' => 'animes#most_reviewed'
 
-  get "/auth/:provider/callback" => 'sessions#google'
+  get "/auth/:provider/callback" => 'sessions#facebook'
   
   resources :reviews
   resources :animes do

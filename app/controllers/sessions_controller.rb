@@ -23,9 +23,9 @@ class SessionsController < ApplicationController
         redirect_to '/'
     end
 
-    def google
+    def facebook
         @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
-            user.username = auth["info"]["first_name"]
+            user.username = auth["info"]["name"]
             user.password = SecureRandom.hex(12)
         end
         if @user.save 
