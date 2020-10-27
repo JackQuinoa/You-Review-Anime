@@ -1,8 +1,14 @@
-Here's <%= @anime.title %>'s reviews!
+<% if @anime %>
+Reviews for <%= @anime.title%>
+<% else %>
+All Reviews
+<% end %>
 
+<ul>
 <% @reviews.each do |r| %>
-    <%= r.rating %>,
-    <%= r.content %>, 
-    by <%= r.user_id.user.username %>
-    <%end%>
+    <li> <%= r.user.username%> rated <%= link_to r.anime.title, anime_path(r.anime_id) %> a <%= r.rating %> 
+    Click the title to find out why!
+    </li>
+<% end %>
+    </ul>
 
