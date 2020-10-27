@@ -1,0 +1,7 @@
+Add a new anime to the available titles to review!
+
+<%= form_for(@anime) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.submit %>
+    <% end %>
