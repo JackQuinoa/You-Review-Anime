@@ -25,7 +25,7 @@ class AnimesController < ApplicationController
 
     def most_reviewed
         @animes = Anime.all
-        @animes.sort_by{ |a| a.reviews.count }
+        @sorted = @animes.sort_by{ |a| a.reviews.count }
     end
 
 
