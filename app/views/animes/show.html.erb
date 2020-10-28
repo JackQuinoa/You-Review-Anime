@@ -1,8 +1,0 @@
-<%= @anime.title %> 
-<% @anime.reviews.each do |r| %>
-    <li>
-    <%= r.user.username %> rated it 
-    <%= r.rating %> and said here is what they said :
-    <%= r.content %>
-    </li>
-    <% end %>

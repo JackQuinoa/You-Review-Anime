@@ -1,5 +1,5 @@
 <h1> Click the title to add or view reviews!</h1> 
-If you do not see your title then <%= link_to 'Add an Anime', new_anime_path %>
+<h3>If you do not see your title then <%= link_to 'add an Anime', new_anime_path %> to the list</h3>
 <% @animes.each do |a| %>
     <li> <%= link_to a.title, anime_reviews_path(a) %> </li>
     <% end %>
