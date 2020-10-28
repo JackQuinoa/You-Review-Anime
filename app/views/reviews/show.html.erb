@@ -1,0 +1,12 @@
+<h1> Here are your reviews!</h1>
+
+<% @reviews.each do |r| %>
+    <li>
+    <%= r.anime.title %> |
+    <%= r.rating %> |
+    <%= r.content %> |
+    <%= link_to 'edit', edit_review_path(r) %>
+
+    </li>
+    <% end %>
+

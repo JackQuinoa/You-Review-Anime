@@ -28,6 +28,11 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def show
+        @reviews = current_user.reviews
+    end
+
+
     def edit
 
     end
