@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_review, only: [:edit, :update]
 
     def index 
-        if params[:anime_id] && @anime = Anime.find_by_id(params[:anime_id])
+        if check_anime
             @reviews = @anime.reviews 
         else
             @reviews = Review.all 
@@ -11,7 +12,7 @@ class ReviewsController < ApplicationController
     end
 
     def new
-        if params[:anime_id] && @anime = Anime.find_by_id(params[:anime_id])
+        if check_anime
             @review = @anime.reviews.build
         else
             @review = Review.new 
@@ -33,13 +34,9 @@ class ReviewsController < ApplicationController
 
 
     def edit
-        @review = Review.find_by_id(params[:id])
-        redirect_to reviews_path if !@review || @review.user != current_user
     end
 
     def update 
-        @review = Review.find_by_id(params[:id])
-        redirect_to reviews_path if !@review || @review.user != current_user
         if @review.update(review_params)
             redirect_to review_path(@review)
         else
@@ -54,5 +51,14 @@ class ReviewsController < ApplicationController
         params.require(:review).permit(:rating, :content, :anime_id)
     end
 
-    
+    def set_review
+        @review = Review.find_by_id(params[:id])
+        redirect_to reviews_path if !@review || @review.user != current_user
+    end
+
+    def check_anime
+        params[:anime_id] && @anime = Anime.find_by_id(params[:anime_id])
+    end
+
+
 end
