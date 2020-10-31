@@ -10,8 +10,7 @@ class AnimesController < ApplicationController
         if @anime.save
             redirect_to animes_path
         else
-            redirect_to new_anime_path
-            flash[:error] = "Don't leave blank space and make sure this title doesn't already exist!"
+            render :new
         end
     end
 
