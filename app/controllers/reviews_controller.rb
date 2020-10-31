@@ -54,4 +54,5 @@ class ReviewsController < ApplicationController
         params.require(:review).permit(:rating, :content, :anime_id)
     end
 
+    
 end
