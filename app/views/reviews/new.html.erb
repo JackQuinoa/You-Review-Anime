@@ -1,8 +1,4 @@
-<% if @review.anime %>
-<h1>Make a review for <%= @review.anime.title %></h1>
-<% else %> 
-<h1> New Review! </h1>
-<% end %>
+<h1><%= new_display_header %></h1>
 
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
