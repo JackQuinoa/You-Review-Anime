@@ -1,5 +1,7 @@
 <h1>Add a new anime to the available titles to review!</h1>
 
+<%= flash[:error] %>
+
 <%= form_for(@anime) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
