@@ -9,6 +9,9 @@
 
 <ul>
 <% if @anime %>
+    <% if @reviews.none? %>
+        <h3> No reviews yet, be the first! </h3>
+        <% end %>
     <% @reviews.each do |r| %>
         <li><%= r.user.username %> |
         <%= r.rating %> |
