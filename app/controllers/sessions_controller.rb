@@ -28,7 +28,10 @@ class SessionsController < ApplicationController
             user.username = auth["info"]["name"]
             user.password = SecureRandom.hex(12)
         end
-        if @user.save 
+        if @user 
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+        elsif @user.save 
             session[:user_id] = @user.id 
             redirect_to user_path(@user)
         else
