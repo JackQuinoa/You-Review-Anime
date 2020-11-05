@@ -25,10 +25,9 @@ class SessionsController < ApplicationController
 
     def omniauth
         @user = User.find_or_create_by(username: auth["info"]["name"]) do |user|
-            user.username = auth["info"]["name"]
             user.password = SecureRandom.hex(12)
         end
-        if @user || @user.save
+        if @user && @user.save
             session[:user_id] = @user.id
             redirect_to user_path(@user) 
         else

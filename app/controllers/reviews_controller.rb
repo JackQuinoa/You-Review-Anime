@@ -50,6 +50,9 @@ class ReviewsController < ApplicationController
         redirect_to review_path(current_user.reviews)
     end
 
+    def newest_reviews
+        @reviews = Review.newest_reviews
+    end
 
     private 
 

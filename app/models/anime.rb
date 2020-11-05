@@ -3,4 +3,6 @@ class Anime < ApplicationRecord
     has_many :users, through: :reviews
     validates :title, uniqueness: true, presence: true
 
+    
+
 end

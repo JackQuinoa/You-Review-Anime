@@ -1,28 +1,14 @@
-<% if @anime %>
-<h1>Reviews for <%= @anime.title%> </h1>
-<%= link_to 'click here to review this anime!', new_anime_review_path %>
-<% else %>
-<h1>All Reviews</h1>
-<% end %>
-
-
-
-<ul>
-<% if @anime %>
-    <% if @reviews.none? %>
-        <h3> No reviews yet, be the first! </h3>
-        <% end %>
-    <% @reviews.each do |r| %>
-        <li><%= r.user.username %> |
+<h1> Here are your reviews!</h1>
+<% if @reviews.none? %>
+        <h3> You don't have any reviews yet! </h3>
+    <% else %>
+        <% @reviews.each do |r| %>
+        <li>
+        <%= r.anime.title %> |
         <%= r.rating %> |
-        <%= r.content %> </l1>
-        <br>
-       <% end %>
-    <% else %> 
-    <% @reviews.each do |r| %>
-    <li> <%= r.user.username%> rated <%= link_to r.anime.title, anime_reviews_path(r.anime_id) %> a <%= r.rating %> 
-    Click the title to find out why!
+        <%= r.content %> |
+        <%= link_to 'edit', edit_review_path(r) %> |
+        <%= link_to 'delete', review_path(r), method: "delete" %> 
     </li>
-        <% end %>
     <% end %>
-    </ul>
+    <% end %>

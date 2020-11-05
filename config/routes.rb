@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   delete '/logout' => 'sessions#destroy'
 
-  get '/animes/most_reviewed' => 'animes#most_reviewed'
+  get '/reviews/newest_reviews' => 'reviews#newest_reviews'
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
   
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :index, ]
   end
   resources :users do 
+    resources :reviews, only: [:index]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

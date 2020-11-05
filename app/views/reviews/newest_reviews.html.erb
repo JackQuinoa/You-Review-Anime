@@ -1,0 +1,7 @@
+<h2> As of today the 5 newest reviews are... </h2>
+
+<%  @reviews.each do |r|  %>
+<%= r.anime.title %> by
+<%= r.user.username %>
+<br>
+<% end %> 
