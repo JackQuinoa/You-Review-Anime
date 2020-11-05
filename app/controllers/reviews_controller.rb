@@ -5,6 +5,8 @@ class ReviewsController < ApplicationController
     def index 
         if check_anime
             @reviews = @anime.reviews 
+        elsif check_user
+            @reviews = current_user.reviews
         else
             @reviews = Review.all 
         end
@@ -27,11 +29,6 @@ class ReviewsController < ApplicationController
             render :new 
         end
     end
-
-    def show
-        @reviews = current_user.reviews
-    end
-
 
     def edit
     end
@@ -63,6 +60,10 @@ class ReviewsController < ApplicationController
     def set_review
         @review = Review.find_by_id(params[:id])
         redirect_to reviews_path if !@review || @review.user != current_user
+    end
+
+    def check_user
+        params[:user_id] && @user = User.find_by_id(params[:user_id])
     end
 
     def check_anime
