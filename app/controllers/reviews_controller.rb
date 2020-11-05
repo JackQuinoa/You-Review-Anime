@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     def create
         @review = current_user.reviews.build(review_params)
         if @review.save
-            redirect_to reviews_path
+            redirect_to user_reviews_path(current_user)
         else 
             render :new 
         end
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
 
     def update 
         if @review.update(review_params)
-            redirect_to review_path(@review)
+            redirect_to user_reviews_path(current_user)
         else
             render :edit
         end
@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
     def destroy
         set_review
         @review.delete
-        redirect_to review_path(current_user.reviews)
+        redirect_to user_reviews_path(current_user)
     end
 
     def newest_reviews

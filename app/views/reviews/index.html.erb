@@ -25,6 +25,8 @@
         <%= link_to r.anime.title, anime_reviews_path(r.anime_id) %> |
         <%= r.rating %> |
         <%= r.content %> 
+        <%= link_to 'edit', edit_review_path(r) %> |
+        <%= link_to 'delete', review_path(r), method: "delete" %> 
         </li>
     <% end %>
 <% else %> 
